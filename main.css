@@ -1,10 +1,8 @@
 body {
-background-color: gray;
-
+font-family: 'Black Ops One';
 }
 
 h1 {
-  color: blue;
   margin: auto;
   text-align: center;
 	font-size: 50px;
@@ -12,8 +10,10 @@ h1 {
 }
 
 #scoreboard	{
-	margin: auto;
-	font-weight: bold;
+  width: 400px;
+	margin: 10px auto;
+  background: white;
+  padding: 15px;
 }
 
 #scoreboard h3, #scoreboard p {
