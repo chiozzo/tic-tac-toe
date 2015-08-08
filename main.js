@@ -29,9 +29,7 @@ function clicked(e){
 };
 
 /*
-
 Add Event Handler for Clicking on Divs
-
 */
 
 for (var i = 0; i < squares.length; i++) {
@@ -46,7 +44,7 @@ function reset(e) {
   console.log("reset called");
   for (var i = 0; i < squares.length; i++) {
   squares[i].innerText = " ";
-};
+  };
 
 }
 
