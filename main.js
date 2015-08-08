@@ -10,6 +10,16 @@ var player2 = false;
 
 var reset = document.getElementById("reset");
 
+var div1 = document.getElementById('1');
+var div2 = document.getElementById('2');
+var div3 = document.getElementById('3');
+var div4 = document.getElementById('4');
+var div5 = document.getElementById('5');
+var div6 = document.getElementById('6');
+var div7 = document.getElementById('7');
+var div8 = document.getElementById('8');
+var div9 = document.getElementById('9');
+
 
 /*
 Clicked event handler add in X & O and switch player
@@ -26,6 +36,8 @@ function clicked(e){
     player2 = false;
     player1 = true;
   }
+
+  checkWinner();
 };
 
 /*
@@ -52,6 +64,16 @@ function resetBoard(e) {
 reset.addEventListener('click', resetBoard);
 
 
+/* Function to check for winner */
+
+function checkWinner(){
+	console.log("checked for winner")
+	if (div1.innerText === div2.innerText && div1.innerText === div3.innerText) {
+	alert("You win!");
+	resetBoard();
+	}
+
+};
 
 
 
