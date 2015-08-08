@@ -20,6 +20,7 @@ var div7 = document.getElementById('7');
 var div8 = document.getElementById('8');
 var div9 = document.getElementById('9');
 
+var winningCombos = [[div1,div2,div3], [div4,div5,div6], [div7,div8,div9], [div1,div4,div7], [div2,div5,div8], [div3,div6,div9], [div1,div5,div9], [div7,div5,div3]];
 
 /*
 Clicked event handler add in X & O and switch player
@@ -68,11 +69,15 @@ reset.addEventListener('click', resetBoard);
 
 function checkWinner(){
 	console.log("checked for winner")
-	if (div1.innerText === div2.innerText && div1.innerText === div3.innerText) {
-	alert("You win!");
-	resetBoard();
-	}
 
+	for (var i = 0; i < winningCombos.length; i++) {
+
+		if (winningCombos[i][0].innerText === ("O" || "X")  && winningCombos[i][1].innerText === ("O" || "X")  && winningCombos[i][2].innerText === ("O" || "X") ) {
+
+		alert("You win!");
+		resetBoard();
+		}
+	}
 };
 
 
