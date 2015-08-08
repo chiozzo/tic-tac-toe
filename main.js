@@ -5,8 +5,10 @@ Variables for DOM elements
 var board = document.getElementById("board");
 var squares = board.getElementsByTagName('div');
 
-var player1 = true;
-var player2 = false;
+var playerO = true;
+var playerX = false;
+var playerO_div = document.getElementById("player1");
+var playerX_div = document.getElementById("player2");
 
 var x_wins = 0;
 var o_wins = 0;
@@ -31,14 +33,14 @@ Clicked event handler add in X & O and switch player
 
 function clicked(e){
   console.log("You clicked " + this);
-  if (player1) {
+  if (playerO) {
     this.innerText = "O";
-    player1 = false;
-    player2 = true
+    playerO = false;
+    playerX = true
   } else {
     this.innerText = "X";
     player2 = false;
-    player1 = true;
+    playerX = true;
   }
 
   checkWinner();
