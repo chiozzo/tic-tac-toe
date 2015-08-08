@@ -24,3 +24,10 @@ h1 {
   margin: 2px;
   text-align: center;
 }
+
+button {
+  text-align: center;
+  margin: 2em auto;
+  display: block;
+
+}
