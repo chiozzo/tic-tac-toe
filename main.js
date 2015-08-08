@@ -33,17 +33,20 @@ Clicked event handler add in X & O and switch player
 
 function clicked(e){
   console.log("You clicked " + this);
-  if (playerO) {
-    this.innerText = "O";
-    playerO = false;
-    playerX = true
-  } else {
-    this.innerText = "X";
-    playerX = false;
-    playerO = true;
-  }
+  if (this.innerText === "") {
 
-  checkWinner();
+    if (playerO) {
+      this.innerText = "O";
+      playerO = false;
+      playerX = true
+    } else {
+      this.innerText = "X";
+      playerX = false;
+      playerO = true;
+    }
+
+    checkWinner();
+  }
 };
 
 /*
@@ -62,7 +65,7 @@ function resetBoard(e) {
   console.log("reset called");
 
   for (var i = 0; i < squares.length; i++) {
-  squares[i].innerText = " ";
+  squares[i].innerText = "";
   };
 
 }
