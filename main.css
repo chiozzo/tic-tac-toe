@@ -12,6 +12,10 @@ h1 {
 }
 
 #board > div {
+  color: white;
+  font-weight: bold;
+  font-size: 150px;
+  line-height: 228px;
   float: left;
   width: 228px;
   height: 228px;
