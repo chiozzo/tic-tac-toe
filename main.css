@@ -1,4 +1,21 @@
 h1 {
-color: blue;
+  color: blue;
+  margin: auto;
+  text-align: center;
+}
 
+#board {
+  border: 3px solid black;
+  width: 700px;
+  height: 700px;
+  margin: auto;
+}
+
+#board > div {
+  float: left;
+  width: 228px;
+  height: 228px;
+  background-color: blue;
+  margin: 2px;
+  text-align: center;
 }
