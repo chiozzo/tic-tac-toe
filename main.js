@@ -8,6 +8,9 @@ var squares = board.getElementsByTagName('div');
 var player1 = true;
 var player2 = false;
 
+var x_wins = 0;
+var o_wins = 0;
+
 var reset = document.getElementById("reset");
 
 var div1 = document.getElementById('1');
@@ -72,12 +75,18 @@ function checkWinner(){
 
 	for (var i = 0; i < winningCombos.length; i++) {
 
-		if (winningCombos[i][0].innerText === ("O" || "X")  && winningCombos[i][1].innerText === ("O" || "X")  && winningCombos[i][2].innerText === ("O" || "X") ) {
-
-		alert("You win!");
-		resetBoard();
-		}
-	}
+		if (winningCombos[i][0].innerText === "O" && winningCombos[i][1].innerText === "O" && winningCombos[i][2].innerText === "O") {
+      console.log("someone won");
+      alert("O wins!");
+      o_wins += 1;
+      resetBoard();
+    } else if (winningCombos[i][0].innerText === "X" && winningCombos[i][1].innerText === "X" && winningCombos[i][2].innerText === "X") {
+      console.log("someone won");
+      alert("X wins!");
+      x_wins += 1;
+      resetBoard();
+    }
+  }
 };
 
 
