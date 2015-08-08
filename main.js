@@ -7,8 +7,8 @@ var squares = board.getElementsByTagName('div');
 
 var playerO = true;
 var playerX = false;
-var playerO_div = document.getElementById("player1");
-var playerX_div = document.getElementById("player2");
+var playerO_div = document.getElementById("playerO");
+var playerX_div = document.getElementById("playerX");
 
 var x_wins = 0;
 var o_wins = 0;
@@ -39,8 +39,8 @@ function clicked(e){
     playerX = true
   } else {
     this.innerText = "X";
-    player2 = false;
-    playerX = true;
+    playerX = false;
+    playerO = true;
   }
 
   checkWinner();
@@ -81,11 +81,13 @@ function checkWinner(){
       console.log("someone won");
       alert("O wins!");
       o_wins += 1;
+      playerO_div.innerText = o_wins;
       resetBoard();
     } else if (winningCombos[i][0].innerText === "X" && winningCombos[i][1].innerText === "X" && winningCombos[i][2].innerText === "X") {
       console.log("someone won");
       alert("X wins!");
       x_wins += 1;
+      playerX_div.innerText = x_wins;
       resetBoard();
     }
   }
