@@ -7,19 +7,19 @@ h1 {
 
 #board {
   border: 3px solid black;
-  width: 696px;
-  height: 696px;
+  width: 546px;
+  height: 546px;
   margin: auto;
 }
 
 #board > div {
   color: white;
   font-weight: bold;
-  font-size: 150px;
-  line-height: 228px;
+  font-size: 100px;
+  line-height: 178px;
   float: left;
-  width: 228px;
-  height: 228px;
+  width: 178px;
+  height: 178px;
   background-color: blue;
   margin: 2px;
   text-align: center;
