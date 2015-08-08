@@ -40,15 +40,16 @@ for (var i = 0; i < squares.length; i++) {
 Add event handler for button to reset board
 */
 
-function reset(e) {
+function resetBoard(e) {
   console.log("reset called");
+
   for (var i = 0; i < squares.length; i++) {
   squares[i].innerText = " ";
   };
 
 }
 
-reset.addEventListener('click', reset);
+reset.addEventListener('click', resetBoard);
 
 
 
