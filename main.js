@@ -5,8 +5,8 @@ Variables for DOM elements
 var board = document.getElementById("board");
 var squares = board.getElementsByTagName('div');
 
-var playerO = true;
-var playerX = false;
+var playerO = false;
+var playerX = true;
 var playerO_div = document.getElementById("playerO");
 var playerX_div = document.getElementById("playerX");
 
@@ -35,14 +35,14 @@ function clicked(e){
   console.log("You clicked " + this);
   if (this.innerText === "") {
 
-    if (playerO) {
-      this.innerText = "O";
-      playerO = false;
-      playerX = true
-    } else {
+    if (playerX) {
       this.innerText = "X";
-      playerX = false;
       playerO = true;
+      playerX = false
+    } else {
+      this.innerText = "O";
+      playerX = true;
+      playerO = false;
     }
 
     checkWinner();
@@ -67,6 +67,8 @@ function resetBoard(e) {
   for (var i = 0; i < squares.length; i++) {
   squares[i].innerText = "";
   };
+  playerO = false;
+  playerX = true;
 
 }
 
