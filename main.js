@@ -2,28 +2,28 @@
 Variables for DOM elements
 */
 
-var board = document.getElementById("board");
-var squares = board.getElementsByTagName('div');
+var board = $('#board');
+var squares = board.children('div');
 
 var playerO = false;
 var playerX = true;
-var playerO_div = document.getElementById("playerO");
-var playerX_div = document.getElementById("playerX");
+var playerO_div = $("#playerO");
+var playerX_div = $("#playerX");
 
 var x_wins = 0;
 var o_wins = 0;
 
-var reset = document.getElementById("reset");
+var reset = $("#reset");
 
-var div1 = document.getElementById('1');
-var div2 = document.getElementById('2');
-var div3 = document.getElementById('3');
-var div4 = document.getElementById('4');
-var div5 = document.getElementById('5');
-var div6 = document.getElementById('6');
-var div7 = document.getElementById('7');
-var div8 = document.getElementById('8');
-var div9 = document.getElementById('9');
+var div1 = $("#1");
+var div2 = $("#2");
+var div3 = $("#3");
+var div4 = $("#4");
+var div5 = $("#5");
+var div6 = $("#6");
+var div7 = $("#7");
+var div8 = $("#8");
+var div9 = $("#9");
 
 var winningCombos = [[div1,div2,div3], [div4,div5,div6], [div7,div8,div9], [div1,div4,div7], [div2,div5,div8], [div3,div6,div9], [div1,div5,div9], [div7,div5,div3]];
 
@@ -31,16 +31,16 @@ var winningCombos = [[div1,div2,div3], [div4,div5,div6], [div7,div8,div9], [div1
 Clicked event handler add in X & O and switch player
 */
 
-function clicked(e){
-  console.log("You clicked " + this);
-  if (this.innerText === "") {
+function clicked(theItemClicked){
+
+  if (theItemClicked.text() === "") {
 
     if (playerX) {
-      this.innerText = "X";
+      theItemClicked.text("X");
       playerO = true;
-      playerX = false
+      playerX = false;
     } else {
-      this.innerText = "O";
+      theItemClicked.text("O");
       playerX = true;
       playerO = false;
     }
@@ -53,9 +53,14 @@ function clicked(e){
 Add Event Handler for Clicking on Divs
 */
 
-for (var i = 0; i < squares.length; i++) {
-  squares[i].addEventListener('click', clicked);
-};
+squares.each(function(){
+  var itemClicked = $(this);
+
+  $(this).click(function(){
+    clicked(itemClicked);
+  });
+});
+
 
 /*
 Add event handler for button to reset board
@@ -64,15 +69,15 @@ Add event handler for button to reset board
 function resetBoard(e) {
   console.log("reset called");
 
-  for (var i = 0; i < squares.length; i++) {
-  squares[i].innerText = "";
-  };
+  squares.each(function(){
+    $(this).text("");
+  });
   playerO = false;
   playerX = true;
 
 }
 
-reset.addEventListener('click', resetBoard);
+reset.click(resetBoard);
 
 
 /* Function to check for winner */
@@ -80,22 +85,23 @@ reset.addEventListener('click', resetBoard);
 function checkWinner(){
 	console.log("checked for winner")
 
-	for (var i = 0; i < winningCombos.length; i++) {
+  $.each(winningCombos, function(index, value){
 
-		if (winningCombos[i][0].innerText === "O" && winningCombos[i][1].innerText === "O" && winningCombos[i][2].innerText === "O") {
+		if (value[0].text() === "O" && value[1].text() === "O" && value[2].text() === "O") {
       console.log("someone won");
       alert("O wins!");
       o_wins += 1;
-      playerO_div.innerText = o_wins;
+      playerO_div.text(o_wins);
       resetBoard();
-    } else if (winningCombos[i][0].innerText === "X" && winningCombos[i][1].innerText === "X" && winningCombos[i][2].innerText === "X") {
+
+    } else if (value[0].text() === "X" && value[1].text() === "X" && value[2].text() === "X") {
       console.log("someone won");
       alert("X wins!");
       x_wins += 1;
-      playerX_div.innerText = x_wins;
+      playerX_div.text(x_wins);
       resetBoard();
     }
-  }
+  });
 };
 
 
